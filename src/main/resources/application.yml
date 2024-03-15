@@ -1,0 +1,69 @@
+server:
+  port: 8082
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    password: Think@123
+    url: jdbc:mysql://localhost:3306/dcbapp
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+Welcome:
+  message: Welcome to daily code buffer!!!!!!!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    password: Think@123
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+Welcome:
+  message: Welcome to daily code buffer!!!!!!!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude : "health"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    password: Think@123
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+Welcome:
+  message: Welcome to daily code buffer!!!!!!!
+
